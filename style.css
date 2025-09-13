@@ -79,13 +79,14 @@
     }
 
     body {
-        height: 100vh;
+        min-height: 100vh;
         justify-content: center;
         align-content: center;
     }
 
     .container {
         width: 90%;
+        margin: 3rem 0rem;
 
         display: flex;
         flex-direction: column;
