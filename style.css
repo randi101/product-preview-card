@@ -136,7 +136,7 @@
     }
 
     #new-price {
-        color: var(--p-green-700);
+        color: var(--p-green-500);
     }
 
     #old-price {
@@ -151,6 +151,14 @@
 
         padding: 1rem;
         
+    }
+
+    button:hover {
+        background-color: var(--p-green-700);
+    }
+
+    button:focus {
+        background-color: var(--p-green-700);
     }
 
     button::before {
