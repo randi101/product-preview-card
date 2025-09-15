@@ -75,56 +75,76 @@
 }
 
 @layer layout {
-    img {
-        width: 100%;
-    }
 
     body {
         min-height: 100vh;
+        width: auto;
+
+        display: flex;
+        align-items: center;
         justify-content: center;
-        align-content: center;
     }
 
     .container {
-        width: 90%;
-        margin: 10rem 0rem;
-
         display: flex;
         flex-direction: column;
-        justify-self: center;
-
         overflow: hidden;
+
+        width: 90%;
+        min-height: 75vh;
+    }
+
+    .image {
+        width: 100%; 
+        aspect-ratio: 700 / 684;
+        background-color: black;
+        overflow: hidden;
+
+        background-color: black;
+
+        display: flex;
+        
+    }
+
+    .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .content {
-        padding: 2rem;
-
         display: flex;
         flex-direction: column;
         gap: clamp(1rem, 0.4286rem + 2.8571vw, 1.5rem);
+        padding: 2.5rem; 
+
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
     }
 
     .prices {
         display: flex;
-        flex-direction: row;
-        gap: 1rem;
         align-items: center;
+        gap: clamp(0.5rem, -0.0714rem + 2.8571vw, 1rem);
     }
 
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 500px) {
         .container {
             flex-direction: row;
-            max-width: 600px;
+            max-width: 800px;
             height: 60%;
-            margin: 0;
         }
 
         .image {
-            width: 200%;
-            height: auto;
+            flex: 1;
+            aspect-ratio: 600 / 900;
+        }
+
+        .content {
+            flex: 1;
         }
     }
-
 }
 
 @layer styling {
@@ -188,10 +208,6 @@
         position: relative;
         top: .15rem;
     }
-}
-
-.image {
-    background-color: black;
 }
 
 @layer layout, styling, typography, colors, default;
