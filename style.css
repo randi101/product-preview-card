@@ -19,6 +19,27 @@
 }
 
 @layer typography{
+    /* 
+        body: font-size: .95rem;
+        body: line-height: 1.5rem;
+        h2: font-size: .8rem;
+        h1: font-size: 2.2rem;
+        #new-price: font-size: 2.25rem;
+
+
+        body: font-size: .8rem;
+        body: line-height: .8rem;
+        h2: font-size: .7rem;
+        h1: font-size: 2rem;
+        #new-price: font-size: 2.1rem;
+
+
+    */
+    body {
+        font-size: .95rem;
+        line-height: 1.5rem;
+    }
+
     @font-face {
         font-family: 'Montserrat', sans-serif;
         src: url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap') format("truetype-variations");
@@ -33,28 +54,23 @@
         font-weight: 700;
     }
 
-    body {
-        font-size: clamp(0.9375rem, 0.8661rem + 0.3571vw, 1rem);
-    }
-
     h2 {
         font-family:'Montserrat', sans-serif;
-        font-weight: 700;
-        font-size: clamp(0.75rem, 0.5786rem + 0.8571vw, 0.9rem);
+        font-weight: 550;
+        font-size: .8rem;
         text-transform: uppercase;
         letter-spacing: .3rem;
     }
 
     h1 {
         font-family:'Fraunces', serif;
-        font-size: clamp(2rem, 1.6571rem + 1.7143vw, 2.3rem);
+        font-size: 2rem;
+        line-height: 2rem;
     }
 
     p {
-        font-size: clamp(1rem, 0.6571rem + 1.7143vw, 1.3rem);
         font-family: 'Montserrat', sans-serif;
         font-weight: 500;
-        line-height: clamp(1.5rem, 0.9286rem + 2.8571vw, 2rem);
     }
 
     #old-price {
@@ -63,14 +79,24 @@
 
     #new-price {
         font-family: 'Fraunces', serif;
-        font-size: clamp(2rem, 1.4286rem + 2.8571vw, 2.5rem);
+        font-size: 2.25rem;
         font-weight: 700;
+        margin: 1rem 0;
     }
 
     button {
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
-        font-size: clamp(1rem, 0.6571rem + 1.7143vw, 1.3rem);
+    }
+
+    @media (min-width: 500px) {
+        body{
+            font-size: .8rem;
+            line-height: 1.15rem;
+        } 
+        h2{font-size: .7rem;} 
+        h1{font-size: 2rem;}
+        #new-price{font-size: 2.1rem;} 
     }
 }
 
@@ -85,59 +111,49 @@
         justify-content: center;
     }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-
-        width: 90%;
-        min-height: 75vh;
-    }
-
-    .image {
-        width: 100%; 
-        aspect-ratio: 700 / 684;
-        background-color: black;
-        overflow: hidden;
-
-        background-color: black;
-    }
-
-    .image img {
+    img {
         width: 100%;
     }
 
-    .content {
-        
+    .container {
+        width: 90%;
+        overflow: hidden;
+    }
 
+    .content {
+        padding: 2rem;
         display: flex;
         flex-direction: column;
-        gap: clamp(1rem, 0.4286rem + 2.8571vw, 1.5rem);
-        padding: 2.5rem; 
+        gap: 1rem;
     }
 
     .prices {
         display: flex;
         align-items: center;
-        gap: clamp(0.5rem, -0.0714rem + 2.8571vw, 1rem);
+        gap: 1rem;
     }
 
-    @media screen and (min-width: 500px) {
+    @media (min-width: 500px) {
         .container {
-            flex-direction: row;
-            max-width: 600px;
-            height: 60%;
+            display: flex;
+            max-width: 500px;
         }
 
-        .image {
+        .image{
             width: 50%;
-            aspect-ratio: 600 / 900;
         }
 
-        .content {
-            flex: 1;
+        .image img {
+            display: block;
+        }
+
+        .content{
+            width: 50%;
+            gap: 0;
+            justify-content: space-between;
         }
     }
+
 }
 
 @layer styling {
@@ -172,11 +188,11 @@
 
     button {
         border: none;
-        border-radius: 10px;
+        border-radius: 5px;
         background-color: var(--p-green-500);
         color: var(--n-white);
 
-        padding: 1rem;
+        padding: .65rem;
         
     }
 
